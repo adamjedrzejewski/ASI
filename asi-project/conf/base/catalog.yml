@@ -2,3 +2,31 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+sentiment_analysis_training_data:
+  type: text.TextDataSet
+  filepath: data/01_raw/train.txt
+
+sentiment_analysis_test_data:
+  type: text.TextDataSet
+  filepath: data/01_raw/test.txt
+
+sentiment_analysis_val_data:
+  type: text.TextDataSet
+  filepath: data/01_raw/val.txt
+
+sentiment_analysis_training_data_with_headers:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/train.csv
+
+sentiment_analysis_test_data_with_headers:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/test.csv
+
+sentiment_analysis_val_data_with_headers:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/val.csv
+
+sentiment_analysis_model_training_data:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/train.csv
