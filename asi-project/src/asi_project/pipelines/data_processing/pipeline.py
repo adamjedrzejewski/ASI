@@ -42,7 +42,7 @@ def create_pipeline(**kwargs) -> Pipeline:
 
         node(
             extract_features,
-            inputs="training_data_encoded",
+            inputs="text_corpus",
             outputs="tfidf_features"
         ),
 
