@@ -1,5 +1,11 @@
 from setuptools import find_packages, setup
 
+import nltk
+
+nltk.download('omw-1.4')
+nltk.download('wordnet')
+nltk.download('stopwords')
+
 entry_point = (
     "asi-project = asi_project.__main__:main"
 )
