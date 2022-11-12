@@ -1,4 +1,4 @@
-# This is a boilerplate parameters config generated for pipeline 'sentiment_analysis'
+# This is a boilerplate parameters config generated for pipeline 'data_processing'
 # using Kedro 0.18.3.
 #
 # Documentation for this file format can be found in "Parameters"
