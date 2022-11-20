@@ -2,16 +2,18 @@
 This is a boilerplate pipeline 'sentiment_analysis'
 generated using Kedro 0.18.3
 """
-
-import pandas as pd
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
-from sklearn.feature_extraction.text import TfidfVectorizer
-
-import scipy
+import logging
 import re
 import string
-import logging
+
+import numpy as np
+import pandas as pd
+import scipy
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import GridSearchCV
 
 logger = logging.getLogger(__name__)
 
@@ -58,13 +60,25 @@ def create_corpus(df: pd.DataFrame) -> pd.DataFrame:
         text = [lm.lemmatize(word) for word in tokens if word not in set(stopwords.words('english'))]
         return ' '.join(str(x) for x in text)
 
-    return df['text'].apply(lambda x: clean_text(x))
+    corpus = df['text'].apply(lambda x: clean_text(x))
+    return corpus
 
 
 def extract_features(corpus: pd.DataFrame) -> scipy.sparse._csr.csr_matrix:
     tfidf_vect = TfidfVectorizer()
-    return tfidf_vect.fit_transform(corpus)
+    result = tfidf_vect.fit_transform(corpus)
+    return result
 
 
 def get_labels(df: pd.DataFrame) -> pd.core.series.Series:
     return df.label
+
+
+def perform_grid_search(features: scipy.sparse._csr.csr_matrix, labels: pd.Series) -> GridSearchCV:
+    parameters = {'max_features': ('auto', 'sqrt'),
+                  'n_estimators': [500],
+                  'max_depth': [5, None], }
+    print(features.shape)
+    grid_search = GridSearchCV(RandomForestClassifier(), parameters, cv=5, return_train_score=True, n_jobs=-1)
+    grid_search.fit(features, np.array(labels).reshape(-1, 1))
+    return grid_search.best_params_
