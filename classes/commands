@@ -1,0 +1,9 @@
+pip install optuna scikit-learn
+pip install tensorflow==2.10.0
+optuna --storage 'sqlite:///test.db' create-study --study-name my-test-study --direction minimize
+optuna --storage 'sqlite:///test.db' study optimize --n-trials 100 --study-name my-test-study --n-jobs 1 example.py objective
+optuna --storage 'sqlite:///test.db' trials --study-name my-test-study
+optuna --storage 'sqlite:///test.db' trials --study-name my-test-study -f json
+optuna --storage 'sqlite:///test.db' best-trials --study-name my-test-study
+optuna --storage 'sqlite:///test.db' delete-study --study-name my-test-study
+optuna --storage 'sqlite:///test.db' create-study --study-name my-test-study --directions minimize maximize
