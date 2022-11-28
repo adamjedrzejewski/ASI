@@ -21,8 +21,13 @@ def create_model(trial: optuna.Trial) -> tf.keras.models.Model:
         tf.keras.layers.Conv2D(5, (3, 3), activation="relu"),
         tf.keras.layers.MaxPool2D(),
         tf.keras.layers.Conv2D(3, (3, 3), activation="relu"),
-        tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(16, activation="relu"),
+        tf.keras.layers.Flatten(), 
+        *(
+            tf.keras.layers.Dense(
+                                  trial.suggest_int(name=f"dense-neurons-{i}", low=4, high=8),
+                                  activation="relu")
+            for i in range(trial.suggest_int(name="denses-count", low=1, high=5))
+        ),
         tf.keras.layers.Dense(12, activation="relu"),
         tf.keras.layers.Dense(encoded_train_y.shape[-1], activation="softmax"),
     ]
@@ -62,6 +67,6 @@ study = optuna.create_study(
 study.optimize(
     func=objective,
     n_jobs=1,
-    n_trials=5,
+    n_trials=3,
     show_progress_bar=True,
 )
