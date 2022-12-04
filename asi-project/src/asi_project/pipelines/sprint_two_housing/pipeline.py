@@ -4,7 +4,7 @@ generated using Kedro 0.18.3
 """
 
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import add_synthetic_features, find_best_model_with_pycaret, prepare_for_manual_training, train_model_and_store_evaluation_in_wandb
+from .nodes import add_synthetic_features, find_best_model_with_pycaret, prepare_for_manual_training, train_model_and_store_evaluation_in_wandb, perform_hyperparameter_optimization_with_optuna
 
 
 def create_pipeline(**kwargs) -> Pipeline:
