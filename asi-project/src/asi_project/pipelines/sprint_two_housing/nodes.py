@@ -5,7 +5,7 @@ generated using Kedro 0.18.3
 import numpy as np
 import pandas as pd
 import wandb
-from pycaret.regression import setup
+from pycaret.regression import setup, compare_models, plot_model
 
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
