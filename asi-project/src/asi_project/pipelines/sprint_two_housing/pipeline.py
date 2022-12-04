@@ -26,6 +26,6 @@ def create_pipeline(**kwargs) -> Pipeline:
         node(
             train_model_and_store_evaluation_in_wandb,
             inputs=["housing_X_train", "housing_X_test", "housing_y_train", "housing_y_test"],
-            outputs=["housing_X_train", "housing_X_test", "housing_y_train", "housing_y_test"]
+            outputs="housing_basic_rf_model"
         )
     ])

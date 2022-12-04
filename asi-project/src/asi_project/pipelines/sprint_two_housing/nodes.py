@@ -14,6 +14,8 @@ from sklearn.preprocessing import FunctionTransformer, StandardScaler, OneHotEnc
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 
+import optuna
+
 def add_synthetic_features(housing_raw_data: pd.DataFrame) -> pd.DataFrame:
     housing = housing_raw_data
     housing["income_cat"] = pd.cut(housing["median_income"],
@@ -56,7 +58,11 @@ def train_model_and_store_evaluation_in_wandb(housing_X_train, housing_X_test, h
     forest_reg = RandomForestRegressor(n_estimators=10, random_state=42)
     forest_reg.fit(housing_prepared, housing_labels)
     wandb.sklearn.plot_regressor(forest_reg, housing_X_train, housing_X_test, housing_y_train, housing_y_test, model_name="Random Forest")
-    return housing_X_train, housing_X_test, housing_y_train, housing_y_test
+    return forest_reg
 
 
 def perform_hyperparameter_optimization_with_optuna:
+    def objective(trial):
+        pass
+    study = optuna.create_study(direction='maximize')
+
