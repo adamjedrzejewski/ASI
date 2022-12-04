@@ -31,7 +31,7 @@ def add_synthetic_features(housing_raw_data: pd.DataFrame) -> pd.DataFrame:
 def find_best_model_with_pycaret(housing_data_with_new_features: pd.DataFrame):
     s = setup(housing_data_with_new_features, target='median_house_value')
     best_pycaret_model = compare_models()
-    residuals_pycaret = plot_model(best, plot = 'residuals')
+    residuals_pycaret = plot_model(best_pycaret_model, plot = 'residuals')
     return best_pycaret_model, residuals_pycaret
 
 def prepare_for_manual_training(housing_data_with_new_features: pd.DataFrame):
