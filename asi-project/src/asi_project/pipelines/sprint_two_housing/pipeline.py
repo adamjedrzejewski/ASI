@@ -16,7 +16,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         node(
             find_best_model_with_pycaret,
             inputs="housing_data_with_new_features",
-            outputs=["best_pycaret_model", "residuals_pycaret"]
+            outputs="best_pycaret_model"
         ),
         node(
             prepare_for_manual_training,
