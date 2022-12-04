@@ -34,3 +34,11 @@ tfidf_features:
 training_labels:
   type: pandas.CSVDataSet
   filepath: data/05_model_input/labels.csv
+
+housing_data_raw:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/housing.csv
+
+housing_data_with_new_features:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/housing_new_features.csv
