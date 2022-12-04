@@ -70,3 +70,7 @@ housing_y_test:
 housing_basic_rf_model:
   type: pickle.PickleDataSet
   filepath: data/06_models/housing_basic_rf_model.pkl
+
+optuna_results:
+  type: pickle.PickleDataSet
+  filepath: data/08_reports/optuna_results.pkl
