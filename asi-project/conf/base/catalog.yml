@@ -34,3 +34,39 @@ tfidf_features:
 training_labels:
   type: pandas.CSVDataSet
   filepath: data/05_model_input/labels.csv
+
+housing_data_raw:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/housing.csv
+
+housing_data_with_new_features:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/housing_new_features.csv
+
+best_pycaret_model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/pycaret_model.pkl
+
+housing_X_train:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/housing_x_train.csv
+
+housing_X_test:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/housing_x_test.csv
+
+housing_y_train:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/housing_y_train.csv
+
+housing_y_test:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/housing_y_test.csv
+
+housing_basic_rf_model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/housing_basic_rf_model.pkl
+
+optuna_results:
+  type: pickle.PickleDataSet
+  filepath: data/08_reports/optuna_results.pkl
