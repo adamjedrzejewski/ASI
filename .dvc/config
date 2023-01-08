@@ -1,4 +1,7 @@
 [core]
-    remote = storage
+    remote = s3remote
 ['remote "storage"']
     url = gdrive://1sYGfEysTRW80X_ItslkjTJmg3fRqTm8o
+['remote "s3remote"']
+    url = s3://asi-bucket-202301
+    region = us-east-2
