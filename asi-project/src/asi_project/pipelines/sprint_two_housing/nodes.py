@@ -80,7 +80,7 @@ def perform_hyperparameter_optimization_with_optuna(housing_X_train, housing_X_t
     def objective(trial):
         max_features = trial.suggest_categorical("max_features", ['log2', 'sqrt', 1.0])
         min_samples_split = trial.suggest_categorical("min_samples_split", [2, 5, 10])
-        min_samples_leaf = trial.suggest_categorical("min_samples_leaf", min_samples_leaf=[1, 2, 4])
+        min_samples_leaf = trial.suggest_categorical("min_samples_leaf", [1, 2, 4])
         max_depth = trial.suggest_categorical("max_depth", [None, 10, 21, 32, 43, 54])
         n_estimators = trial.suggest_int("n_estimators", low=100, max=1000, step=100)
         rf = RandomForestRegressor(n_estimators=n_estimators, max_depth=max_depth, min_samples_split=min_samples_split,
