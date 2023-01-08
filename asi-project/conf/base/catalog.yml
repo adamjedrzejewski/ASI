@@ -48,20 +48,20 @@ best_pycaret_model:
   filepath: data/06_models/pycaret_model.pkl
 
 housing_X_train:
-  type: pandas.CSVDataSet
-  filepath: data/05_model_input/housing_x_train.csv
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/housing_x_train.pkl
 
 housing_X_test:
-  type: pandas.CSVDataSet
-  filepath: data/05_model_input/housing_x_test.csv
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/housing_x_test.pkl
 
 housing_y_train:
-  type: pandas.CSVDataSet
-  filepath: data/05_model_input/housing_y_train.csv
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/housing_y_train.pkl
 
 housing_y_test:
-  type: pandas.CSVDataSet
-  filepath: data/05_model_input/housing_y_test.csv
+  type: pickle.PickleDataSet
+  filepath: data/05_model_input/housing_y_test.pkl
 
 housing_basic_rf_model:
   type: pickle.PickleDataSet
