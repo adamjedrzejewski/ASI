@@ -44,7 +44,7 @@ def prepare_for_manual_training(housing_data_with_new_features: pd.DataFrame):
         strat_train_set = housing.loc[train_index]
         strat_test_set = housing.loc[test_index]
     housing = strat_train_set.drop("median_house_value", axis=1)
-    housing_y_train = strat_train_set["median_house_value"].copy()
+    housing_test = strat_test_set.drop("median_house_value", axis=1)
     housing_num = housing.drop('ocean_proximity', axis=1)
     num_attribs = list(housing_num)
     cat_attribs = ["ocean_proximity"]
@@ -57,7 +57,8 @@ def prepare_for_manual_training(housing_data_with_new_features: pd.DataFrame):
         ("cat", OneHotEncoder(), cat_attribs),
     ])
     housing_X_train = full_pipeline.fit_transform(housing)
-    housing_X_test = strat_test_set.drop("median_house_value", axis=1)
+    housing_y_train = strat_train_set["median_house_value"].copy()
+    housing_X_test = full_pipeline.fit_transform(housing_test)
     housing_y_test = strat_test_set["median_house_value"].copy()
     return housing_X_train, housing_X_test, housing_y_train, housing_y_test
 
