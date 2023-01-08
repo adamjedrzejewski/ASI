@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  kedro:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./asi-project/data
+        target: /app/asi-project/data
+
