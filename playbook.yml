@@ -21,7 +21,9 @@
 
   - name: Install python deps
     pip:
-      name: dvc
+      name:
+        - dvc
+        - dvc[s3]
 
   - name: Add Docker GPG apt Key
     apt_key:
@@ -42,3 +44,10 @@
   - name: Install Docker Module for Python
     pip:
       name: docker
+
+  - name: DVC pull
+    command: chdir=/root/ASI python3 -m dvc pull
+
+  - name: Docker compose up
+    command: chdir=/root/ASI docker compose up
+
