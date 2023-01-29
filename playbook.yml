@@ -53,5 +53,5 @@
     command: chdir=/root/ASI python3 -m dvc pull
 
   - name: Docker compose up
-    command: chdir=/root/ASI docker compose up
+    command: chdir=/root/ASI docker compose up -d
 
