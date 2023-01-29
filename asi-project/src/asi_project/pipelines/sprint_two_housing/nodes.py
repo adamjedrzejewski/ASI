@@ -64,6 +64,7 @@ def prepare_for_manual_training(housing_data_with_new_features: pd.DataFrame):
 
 
 def train_model_and_store_evaluation_in_wandb(housing_X_train, housing_X_test, housing_y_train, housing_y_test):
+    wandb.login(key='c4d3d08fc4280097301d0c47c369e3799be8a202')
     wandb.init(project="asi-project-task", entity="asi-project")
     forest_reg = RandomForestRegressor(n_estimators=10, random_state=42)
     forest_reg.fit(housing_X_train, housing_y_train)
