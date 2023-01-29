@@ -40,7 +40,11 @@
       name: docker-ce
       state: latest
       update_cache: true
-
+      
+  - name: Install Docker Compose
+    apt:
+      name: docker-compose-plugin
+     
   - name: Install Docker Module for Python
     pip:
       name: docker
