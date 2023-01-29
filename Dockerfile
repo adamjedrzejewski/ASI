@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get -y install curl
+RUN apt-get -y install curl gcc
 RUN apt-get install libgomp1
 RUN mkdir /app
 WORKDIR /app
