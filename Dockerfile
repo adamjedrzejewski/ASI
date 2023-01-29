@@ -8,5 +8,5 @@ COPY asi-project/src/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
 WORKDIR asi-project
-ENTRYPOINT ["kedro", "run"]
+ENTRYPOINT ["kedro", "run", "--pipeline", "sprint_two_housing"]
 
