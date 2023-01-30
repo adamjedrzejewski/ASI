@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - WANDB_API_KEY=c4d3d08fc4280097301d0c47c369e3799be8a202
-      - WANDB_MODE="offline"
+      - WANDB_MODE=offline
     volumes:
       - type: bind
         source: ./asi-project/data
