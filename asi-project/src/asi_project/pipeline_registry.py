@@ -4,8 +4,6 @@ from typing import Dict
 from kedro.framework.project import find_pipelines
 from kedro.pipeline import Pipeline
 
-from .pipelines import data_processing, sprint_two_housing
-
 
 
 def register_pipelines() -> Dict[str, Pipeline]:

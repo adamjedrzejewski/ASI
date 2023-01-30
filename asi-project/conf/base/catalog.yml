@@ -3,38 +3,6 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
 
-training_data_raw:
-  type: text.TextDataSet
-  filepath: data/01_raw/train.txt
-
-test_data_raw:
-  type: text.TextDataSet
-  filepath: data/01_raw/test.txt
-
-val_data_raw:
-  type: text.TextDataSet
-  filepath: data/01_raw/val.txt
-
-test_data_with_headers:
-  type: pandas.CSVDataSet
-  filepath: data/03_primary/test.csv
-
-model_training_data_encoded:
-  type: pandas.CSVDataSet
-  filepath: data/03_primary/train.csv
-
-text_corpus:
-  type: pandas.CSVDataSet
-  filepath: data/03_primary/corpus.csv
-
-tfidf_features:
-  type: pickle.PickleDataSet
-  filepath: data/05_model_input/features.pkl
-
-training_labels:
-  type: pandas.CSVDataSet
-  filepath: data/05_model_input/labels.csv
-
 housing_data_raw:
   type: pandas.CSVDataSet
   filepath: data/01_raw/housing.csv
