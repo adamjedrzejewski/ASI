@@ -2,8 +2,6 @@
 
 ## Team number one
 
-### Execute asi-project/setup.sh script before running the pipeline
-
 | student | number |
 |---------|--------|
 | Jacek Kosy | s20460 |
